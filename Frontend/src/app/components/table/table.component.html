@@ -1,0 +1,43 @@
+<div class="table-responsive">
+    <table class="table table-bordered table-hover">
+      <thead class="thead-dark">
+        <tr>
+          <th>S.No</th>  
+          <th>First_Name</th>
+          <th>Last_Name</th>
+          <th>Email</th>
+          <th>Gender</th>
+          <th>Ip_Address</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let record of records|  paginate :{
+                itemsPerPage:20,
+                currentPage:pagination,
+                totalItems:allUserList,
+                }; let i = index">
+            
+          <td>{{(pagination-1)*itemsPerPage+i+1}}</td>
+          <td>{{record.col1}}</td>
+          <td>{{record.col2}}</td>
+          <td>{{record.col3}}</td>
+          <td>{{record.col4}}</td>
+          <td>{{record.col5}}</td>
+          <td>
+            <button class="btn btn-warning btn-sm" (click)="editRecord(record)">Edit</button>/
+            <button class="btn btn-danger btn-sm" (click)="deleteRecord(record.id)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <button class="btn btn-primary" (click)="openPopup()">Add New Record</button>       
+</div>
+  
+  <app-popup *ngIf="isPopupVisible" [record]="selectedRecord" (close)="closePopup($event)"></app-popup>
+
+<div class="d-flex justify-content-center">
+    
+    <pagination-controls (pageChange)="renderPage($event)"></pagination-controls>
+      
+</div>  

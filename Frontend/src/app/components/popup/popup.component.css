@@ -1,0 +1,8 @@
+.modal-content{
+    animation: fadeIn 0.3s;
+}
+
+@keyframes fadeIn{
+    from{opacity: 0; transfrom: translateY(-50px);}
+    to{opacity: 1; transfrom:translateY(0);}
+}
