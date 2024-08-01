@@ -1,0 +1,1 @@
+"*.pyc\n__pycache__/\ndb.sqlite3\nvenv/\n*.log\nnode_modules/\ndist/\n.env" 
